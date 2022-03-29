@@ -1,53 +1,27 @@
 
-var appShellFiles = [
-    //'/',
-    '/index.html',
-    'images/favicon.png',
-    'plugins/bootstrap/bootstrap.min.css',
-    'plugins/slick/slick.css',
-    'plugins/themify-icons/themify-icons.css',
-    'css/style.css',
-    'images/logo.png',
-    'images/illustrations/leaf-bg.png',
-    'images/illustrations/dots-cyan.png',
-    'images/illustrations/leaf-orange.png',
-    'images/illustrations/dots-orange.png',
-    'images/illustrations/leaf-yellow.png',
-    'images/illustrations/leaf-cyan.png',
-    'images/illustrations/dots-group-orange.png',
-    'images/illustrations/leaf-pink-round.png',
-    'images/illustrations/leaf-cyan-2.png',
-    'images/experience/icon-1.png',
-    'images/experience/icon-2.png',
-    'images/experience/icon-3.png',
-    'images/portfolio/item-1.png',
-    'images/portfolio/item-2.png',
-    'images/portfolio/item-3.png',
-    'images/portfolio/item-4.png',
-    'images/portfolio/item-5.png',
-    'images/testimonial/client-1.png',
-    'images/backgrounds/education-bg.png',
-    'plugins/jQuery/jquery.min.js',
-    'plugins/bootstrap/bootstrap.min.js',
-    'plugins/slick/slick.min.js',
-    'plugins/shuffle/shuffle.min.js',
-    'js/script.js',
-];
+var userImages = [];
+for(var i=1; i<4; i++) {
+  userImages.push('/images/user-'+ i +'.jpg');
+}
 
+var appShellFiles = ['/index.html', '/about.html', '/portfolio.html', '/blog.html'];
+var contentToCache = appShellFiles.concat(userImages);
+
+//console.log(userImages);
 
 self.addEventListener('install', event => {  
+  caches.open('box-1');
 
-  const endInstall = caches.open('box').then( cache =>{  
-    return cache.addAll(appShellFiles);
+  caches.open('box').then( cache =>{
+
+    //cache.add('/index.html');
+    //cache.add('/about.html');
+
+    //cache.addAll([ '/index.html', '/about.html', '/portfolio.html' ]);
+
+    cache.addAll(contentToCache);
   });
 
-  event.waitUntil( endInstall);
-
-  console.log("se instala");
-  //self.skipWaiting();
-});
-
-
-self.addEventListener('fetch' , event => {
-    event.respondWith( caches.match( event.request));
+  
+  self.skipWaiting();
 });
