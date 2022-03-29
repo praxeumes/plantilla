@@ -4,7 +4,7 @@
 //   userImages.push('/images/user-'+ i +'.jpg');
 // }
 
-var appShellFiles = ['/index.html'];
+var appShellFiles = ['/plantilla/index.html'];
 //var contentToCache = appShellFiles.concat(userImages);
 
 //console.log(userImages);
