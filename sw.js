@@ -1,11 +1,11 @@
 
-// var userImages = [];
-// for(var i=1; i<4; i++) {
-//   userImages.push('/images/user-'+ i +'.jpg');
-// }
+ var userImages = [];
+ for(var i=1; i<4; i++) {
+   userImages.push('/plantilla/images/user-'+ i +'.jpg');
+ }
 
 var appShellFiles = ['/plantilla/index.html'];
-//var contentToCache = appShellFiles.concat(userImages);
+var contentToCache = appShellFiles.concat(userImages);
 
 //console.log(userImages);
 
@@ -19,7 +19,7 @@ self.addEventListener('install', event => {
 
     //cache.addAll([ '/index.html', '/about.html', '/portfolio.html' ]);
 
-    cache.addAll(appShellFiles);
+    cache.addAll(contentToCache);
   });
 
   
