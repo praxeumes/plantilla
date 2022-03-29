@@ -43,6 +43,7 @@ self.addEventListener('install', event => {
 
   event.waitUntil( endInstall);
 
+  console.log("se instala");
   //self.skipWaiting();
 });
 
