@@ -1,6 +1,6 @@
 
 var appShellFiles = [
-    '/',
+    //'/',
     '/index.html',
     'images/favicon.png',
     'plugins/bootstrap/bootstrap.min.css',
